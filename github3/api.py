@@ -72,10 +72,13 @@ class GithubCore(object):
 
         if not is_collection(resource):
             resource = [resource]
-
+        
+        if data is not None and not isinstance(data, basestring):
+            data = json.dumps(data)
+        
         url = self._url_for(*resource)
         r = self._s.request(method, url, params=params, data=data)
-
+        
         r.raise_for_status()
 
         return r

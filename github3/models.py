@@ -122,7 +122,7 @@ class Authorization(BaseResource):
         )
 
         _id = json.loads(r.content).get('id')
-        return self._h.apps.get(_id)
+        return self._h.authorizations.get(_id)
         return r.ok
 
     def destroy(self):
