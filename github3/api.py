@@ -38,7 +38,7 @@ class GithubCore(object):
         """Logs user into Github with given credentials."""
 
         # Attach auth to session.
-        self._s.auth = (username.password)
+        self._s.auth = (username, password)
 
         return True
 
@@ -113,6 +113,10 @@ class Github(GithubCore):
     def __repr__(self):
         return '<github-client at 0x%x>' % (id(self))
 
+    @property
+    def authorizations(self):
+        return self._get_resources(('authorizations'), Authorization)
+    
     # @property
     # def addons(self):
     #     return self._get_resources(('addons'), Addon)

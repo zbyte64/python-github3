@@ -1,1 +1,6 @@
 toy.py
+*.py[cdo]
+*~
+bin/
+include/
+lib/
